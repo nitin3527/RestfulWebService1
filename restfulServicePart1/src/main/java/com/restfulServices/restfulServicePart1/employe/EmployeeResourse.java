@@ -22,7 +22,7 @@ public class EmployeeResourse {
     @GetMapping(path = "/employees/{id}")
     public Employee getEmp(@PathVariable int id){
         Employee emp =  service.findOne(id);
-        if(emp.getId() == null) throw new EmployeeNotFoundException("id- " + id);
+        if(emp == null) throw new EmployeeNotFoundException("id- " + id);
         return emp;
     }
     @DeleteMapping(path = "/employees/{id}")
